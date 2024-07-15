@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\API\CategoryController as APICategoryController;
 use App\Http\Controllers\API\ProductController as APIProductController;
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProductController;
 use Illuminate\Http\Request;
@@ -11,6 +12,8 @@ use Illuminate\Support\Facades\Route;
 //     return $request->user();
 // })->middleware('auth:sanctum');
 
+Route::post('/signup',[AuthController::class,'register']);
+Route::post('/signin',[AuthController::class,'login']);
 
 Route::apiResource('categories', APICategoryController::class);
 Route::apiResource('products', APIProductController::class);
