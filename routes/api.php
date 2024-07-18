@@ -14,6 +14,9 @@ use Illuminate\Support\Facades\Route;
 
 Route::post('/signup',[AuthController::class,'register']);
 Route::post('/signin',[AuthController::class,'login']);
+Route::get('/singleUser',[AuthController::class,'singleUser'])->middleware('auth:sanctum');
+
+
 
 Route::apiResource('categories', APICategoryController::class);
 Route::apiResource('products', APIProductController::class);

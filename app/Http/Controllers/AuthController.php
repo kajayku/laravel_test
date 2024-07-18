@@ -63,4 +63,19 @@ class AuthController extends Controller
                 'user' => $user,
             ], 200);
     }
+
+
+    public function singleUser(Request $request){
+
+        $userId =  Auth::user()->id;
+
+        // echo $userId;exit;
+
+        $user = User::where('id',$userId)->get();
+        return response()->json(
+            [
+                'status' => true,
+                'user' => $user,
+            ], 200);
+    }
 }
